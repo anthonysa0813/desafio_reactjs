@@ -4,16 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import ItemCount from "./ItemCount";
 
-const CardProdut = ({ title, price }) => {
-  const [count, setCount] = useState(0);
-
-  const aumentarCount = () => {
-    setCount(count + 1);
-  };
-
-  const disminuirCount = () => {
-    setCount(count - 1);
-  };
+const CardProdut = ({ title, price, stock }) => {
   return (
     <>
       <div class="card" style={{ width: "18rem;" }}>
@@ -28,7 +19,7 @@ const CardProdut = ({ title, price }) => {
             <h5 class="card-title">{title}</h5>
             <h4 className="price__product">${price}</h4>
           </div>
-          <ItemCount />
+          <ItemCount stock={stock} />
         </div>
       </div>
     </>

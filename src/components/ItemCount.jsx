@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
-const ItemCount = () => {
+const ItemCount = ({ stock }) => {
   const [count, setCount] = useState(0);
   const aumentarCount = () => {
-    setCount(count + 1);
+    setCount(count < stock ? count + 1 : stock);
   };
 
   const disminuirCount = () => {
-    setCount(count > 0 ? count - 1 : null);
+    setCount(count > 0 ? count - 1 : 0);
   };
   return (
     <>
