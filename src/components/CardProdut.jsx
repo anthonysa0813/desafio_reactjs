@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import air from "../images/ari_mujer.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+
 import ItemCount from "./ItemCount";
 
-const CardProdut = ({ title, price, stock }) => {
+const CardProdut = ({ title, price, pictureUrl, id, description, stock }) => {
   return (
     <>
-      <div class="card" style={{ width: "18rem;" }}>
+      <div class="card">
         <img
-          src={air}
+          src={pictureUrl}
           class="card-img-top"
           alt="..."
           className="card__producto-image"

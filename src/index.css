@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.card {
+  margin: 1em;
+}
+
 .card__producto-image {
   width: 200px;
   height: 150px;
