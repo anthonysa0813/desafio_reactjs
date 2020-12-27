@@ -46,7 +46,6 @@ code {
   color: slateblue;
 }
 .button__product {
-  width: 100%;
   margin-top: 0.5em;
 }
 
@@ -77,4 +76,6 @@ code {
 
 .image {
   grid-area: image;
+  max-width: 400px;
+  object-fit: contain;
 }
