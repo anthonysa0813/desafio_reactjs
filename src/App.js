@@ -28,6 +28,7 @@ function App() {
           <Route path="/item/:id">
             <ItemDetailContainer />
           </Route>
+          
         </Switch>
       </Router>
     </>
