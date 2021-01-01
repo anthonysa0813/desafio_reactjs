@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Count from "./Count";
-import {Redirect} from 'react-router-dom'
+import { Link ,Redirect} from 'react-router-dom'
 
 const ItemDetail = ({
   id,
@@ -18,12 +18,12 @@ const ItemDetail = ({
   stock,
 }) => {
 
-
+  const [activeRedirect, setActiveRedirect] = useState(false)
 
   const redirectCarrito = () => {
-    return (
-      <Redirect to="/"  />
-    )
+    
+      <Redirect to="/carrito"  />
+  
   }
   return (
     <div className="contenedor">
@@ -42,10 +42,10 @@ const ItemDetail = ({
         <span>sotck: </span>
         <strong>{stock}</strong>
         <Count  stock={stock}/>
-        <button className="btn btn-primary btn-block mt-2" onClick={() => redirectCarrito()}>
+        <Link className="btn btn-primary btn-block mt-2" onClick={() => redirectCarrito()}>
           Agregar al carrito
-        </button>
-      </div>
+        </Link>
+      </div>  
     </div>
   );
 };
