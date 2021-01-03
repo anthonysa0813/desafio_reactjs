@@ -1,14 +1,7 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStore, faQuestion } from "@fortawesome/free-solid-svg-icons";
+
 import CartWidget from "./CartWidget";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (

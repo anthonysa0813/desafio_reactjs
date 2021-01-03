@@ -1,4 +1,7 @@
 import React from "react";
+import Count from "./Count";
+import { Link } from "react-router-dom";
+import ButtonAddCart from "./ButtonAddCart";
 
 const ItemDetail = ({
   id,
@@ -31,9 +34,8 @@ const ItemDetail = ({
         <strong>${price}</strong> <br />
         <span>sotck: </span>
         <strong>{stock}</strong>
-        <button className="btn btn-primary btn-block">
-          Agregar al carrito
-        </button>
+        <Count stock={stock} />
+        <ButtonAddCart />
       </div>
     </div>
   );

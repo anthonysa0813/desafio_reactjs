@@ -12,6 +12,7 @@ import {
   Link,
   NavLink,
 } from "react-router-dom";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -28,7 +29,11 @@ function App() {
           <Route path="/item/:id">
             <ItemDetailContainer />
           </Route>
+          <Route path="/carrito">
+            <h1>Carrito..</h1>
+          </Route>
         </Switch>
+        <Footer />
       </Router>
     </>
   );
