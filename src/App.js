@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "./components/Navbar";
 import "./index.css";
@@ -13,28 +13,34 @@ import {
   NavLink,
 } from "react-router-dom";
 import Footer from "./components/Footer";
+import { Store } from "./store";
 
 function App() {
+  const [data, setData] = useState({
+    items: [],
+    cantidad: 3,
+  });
   return (
     <>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact>
-            <ItemListContainer />
-          </Route>
-          <Route path="/categorias/:id">
-            <ItemListContainer />
-          </Route>
-          <Route path="/item/:id">
-            <ItemDetailContainer />
-          </Route>
-          <Route path="/carrito">
-            <h1>Carrito..</h1>
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
+      <Store.Provider value={[data, setData]}>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact>
+              <ItemListContainer />
+            </Route>
+            <Route path="/categorias/:id">
+              <ItemListContainer />
+            </Route>
+            <Route path="/item/:id">
+              <ItemDetailContainer />
+            </Route>
+            <Route path="/carrito">
+              <h1>Carrito..</h1>
+            </Route>
+          </Switch>
+        </Router>
+      </Store.Provider>
     </>
   );
 }

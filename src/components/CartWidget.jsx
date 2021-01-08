@@ -1,34 +1,56 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStore } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
+import { Store } from "../store";
+import Modal from "./general/Modal";
 const CartWidget = () => {
+  const [activeModal, setActiveModal] = useState(false);
+
+  const mostrarModal = () => {
+    setActiveModal(!activeModal);
+    console.log("pero que cague de riii");
+  };
+
+  const [data, setData] = useContext(Store);
+
+  console.log(data);
+
   return (
     <>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item active">
-            <Link className="nav-link" to={"/categorias/adidas"}>
-              Adidas<span className="sr-only">(current)</span>
-            </Link>
+          <li className="nav-item ">
+            <NavLink
+              className="nav-link"
+              activeClassName="active"
+              to={"/categorias/adidas"}
+            >
+              Adidas
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to={"/categorias/nike"}>
+            <NavLink className="nav-link" to={"/categorias/nike"}>
               Nike
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to={"/categorias/puma"}>
+            <NavLink className="nav-link" to={"/categorias/puma"}>
               Puma
-            </Link>
+            </NavLink>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/carrito">
-              Carrito <FontAwesomeIcon icon={faStore} />
-            </Link>
+          <li className="nav-item" onClick={() => mostrarModal()}>
+            <div className="nav-link carrito">
+              <FontAwesomeIcon icon={faShoppingCart} />
+              <div className="contador">
+                <span>{data.cantidad}</span>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
+
+      {activeModal ? <Modal /> : null}
     </>
   );
 };

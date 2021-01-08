@@ -1,7 +1,7 @@
 import React from "react";
 import Count from "./Count";
-import { Link } from "react-router-dom";
-import ButtonAddCart from "./ButtonAddCart";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 const ItemDetail = ({
   id,
@@ -26,16 +26,24 @@ const ItemDetail = ({
         <strong>Descripción:</strong>
         <hr />
         <ul>
-          <ol>{character_1}</ol>
-          <ol>{character_2}</ol>
-          <ol>{character_3}</ol>
+          <ol>
+            <FontAwesomeIcon className="icon-check" icon={faCheckCircle} />
+            {character_1}
+          </ol>
+          <ol>
+            <FontAwesomeIcon className="icon-check" icon={faCheckCircle} />
+            {character_2}
+          </ol>
+          <ol>
+            <FontAwesomeIcon className="icon-check" icon={faCheckCircle} />
+            {character_3}
+          </ol>
         </ul>
         <span>Precio: </span>
         <strong>${price}</strong> <br />
         <span>sotck: </span>
         <strong>{stock}</strong>
         <Count stock={stock} />
-        <ButtonAddCart />
       </div>
     </div>
   );

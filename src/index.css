@@ -80,7 +80,6 @@ code {
   object-fit: contain;
 }
 
-
 .footer {
   display: flex;
   justify-content: center;
@@ -93,4 +92,47 @@ code {
   bottom: 0;
   right: 0;
   left: 0;
+}
+
+.icon-check {
+  color: green;
+  margin-right: 0.5rem;
+}
+
+/* cart border count */
+
+.carrito {
+  display: flex;
+  position: relative;
+}
+.contador {
+  background-color: black;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: -5px;
+  justify-content: center;
+  align-self: center;
+  color: white;
+  width: 20px;
+
+  height: 20px;
+  border-radius: 50%;
+}
+
+/* modal  */
+
+.modal-cart {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  right: 0;
+  transition: all 0.3s ease;
+  top: 52px;
+  background: #f8f9fa;
+  width: 30%;
+  border-left: 1rem;
+  height: 100vh;
+  color: black;
+  z-index: 2;
 }
