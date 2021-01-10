@@ -17,7 +17,15 @@ const ItemDetail = ({
   image1,
   image2,
   stock,
+  item,
 }) => {
+  const producto = {
+    id: id,
+    title: title,
+    price: price,
+    stock: stock,
+  };
+
   return (
     <div className="contenedor">
       <h1 className="title">{title}</h1>
@@ -43,7 +51,7 @@ const ItemDetail = ({
         <strong>${price}</strong> <br />
         <span>sotck: </span>
         <strong>{stock}</strong>
-        <Count stock={stock} />
+        <Count stock={stock} item={producto} />
       </div>
     </div>
   );

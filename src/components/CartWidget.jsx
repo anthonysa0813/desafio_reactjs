@@ -9,12 +9,9 @@ const CartWidget = () => {
 
   const mostrarModal = () => {
     setActiveModal(!activeModal);
-    console.log("pero que cague de riii");
   };
 
   const [data, setData] = useContext(Store);
-
-  console.log(data);
 
   return (
     <>

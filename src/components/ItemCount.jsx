@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { Link } from "react-router-dom";
 import ButtonAddCart from "./ButtonAddCart";
 import Count from "./Count";
 
 const ItemCount = ({ stock, id }) => {
   return (
     <>
-      <Count stock={stock} />
+      <Count stock={stock} id={id} />
       <ButtonAddCart />
     </>
   );

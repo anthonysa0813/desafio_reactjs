@@ -18,7 +18,8 @@ import { Store } from "./store";
 function App() {
   const [data, setData] = useState({
     items: [],
-    cantidad: 3,
+    cantidad: 0,
+    precio: 0,
   });
   return (
     <>
