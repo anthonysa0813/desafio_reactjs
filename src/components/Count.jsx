@@ -37,27 +37,31 @@ const Count = ({ stock, item }) => {
  */
 
   const addCount = () => {
-    setCheck([...check, item]);
-
-    if (check.length > 0) {
-      const resultado = data.items.find((i) => i.id === item.id);
+    const productoAgregado = {
+      ...item,
+      cantidad: 0,
+    };
+    if (true) {
+      const resultado = data.items.find((i) => i.id === productoAgregado.id);
       if (resultado) {
         console.log(resultado);
         console.log("si existe");
+        resultado.cantidad += count;
         setData({
           ...data,
-          cantidad: count + count,
-          items: [resultado],
+          cantidad: data.cantidad + count,
+          items: [...data.items],
+          precio: item.price * parseInt(count),
+        });
+      } else {
+        productoAgregado.cantidad = count;
+        setData({
+          ...data,
+          cantidad: data.cantidad + count,
+          items: [...data.items, productoAgregado],
           precio: item.price * parseInt(count),
         });
       }
-    } else {
-      setData({
-        ...data,
-        cantidad: count,
-        items: [...data.items, item],
-        precio: item.price * parseInt(count),
-      });
     }
   };
   return (
