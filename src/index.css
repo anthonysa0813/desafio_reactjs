@@ -136,3 +136,32 @@ code {
   color: black;
   z-index: 2;
 }
+
+.container-portada {
+  max-width: 100vw;
+  height: 50vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.container-portada img {
+  width: 100vw;
+  height: inherit;
+  object-fit: cover;
+  filter: opacity(0.9);
+}
+
+.text-portada {
+  position: absolute;
+  color: white;
+  left: 10%;
+}
+.button-efect:hover {
+  background-color: white !important;
+  color: rgb(19, 88, 236) !important;
+}
+
+hr {
+  background-color: white;
+}

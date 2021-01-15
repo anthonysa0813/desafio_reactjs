@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import Footer from "./components/Footer";
 import { Store } from "./store";
+import Portada from "./components/Portada";
 
 function App() {
   const [data, setData] = useState({
@@ -28,6 +29,7 @@ function App() {
           <Navbar />
           <Switch>
             <Route path="/" exact>
+              <Portada />
               <ItemListContainer />
             </Route>
             <Route path="/categorias/:id">

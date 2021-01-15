@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 
-import ItemCount from "./ItemCount";
+import Count from "./Count";
 import { Link } from "react-router-dom";
 
 const CardProdut = ({ title, price, pictureUrl, id, description, stock }) => {
+  const item = {
+    id: id,
+    title: title,
+    price: price,
+    image: pictureUrl,
+    stock: stock,
+  };
+
   return (
     <>
       <div class="card">
@@ -22,7 +30,7 @@ const CardProdut = ({ title, price, pictureUrl, id, description, stock }) => {
             <h5 class="card-title">{title}</h5>
             <h4 className="price__product">${price}</h4>
           </div>
-          <ItemCount stock={stock} id={id} />
+          <Count stock={stock} id={id} item={item} />
         </div>
       </div>
     </>
