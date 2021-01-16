@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import { Store } from "../../store";
 import { NavLink } from "react-router-dom";
 import ItemDetail from "../ItemDetail";
@@ -6,12 +6,17 @@ import ItemDetail from "../ItemDetail";
 const Modal = () => {
   const [data, setData] = useContext(Store);
 
-  const eliminarItem = (id) => {
+  const eliminarItem = (item) => {
     setData({
       ...data,
-      items: [...data.items.filter((i) => i.id !== id)],
+      items: [...data.items.filter((i) => i.id !== item.id)],
+      cantidad: data.cantidad - item.cantidad,
     });
   };
+  const producto = {
+    ...data,
+  };
+  console.log(producto.items.length);
 
   const eliminarTodo = () => {
     setData({
@@ -37,12 +42,12 @@ const Modal = () => {
           ) : null}
           {data.items.length > 0 ? (
             <tbody>
-              {data.items.map((item) => (
+              {producto.items.map((item) => (
                 <tr>
                   <th scope="row">{item.id}</th>
                   <td>{item.title}</td>
                   <td>{item.cantidad}</td>
-                  <td>{data.precio}</td>
+                  <td>{item.price * item.cantidad}</td>
                   {data.items.length > 0 ? (
                     <button
                       className="btn btn-sm btn-warning mt-2"
@@ -55,7 +60,7 @@ const Modal = () => {
               ))}
             </tbody>
           ) : (
-            <h3 className="text-center">
+            <h3 className="text-center mt-5">
               No hay items agregados...
               <NavLink to={"/"}>ver productos </NavLink>
             </h3>
@@ -85,4 +90,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default memo(Modal);

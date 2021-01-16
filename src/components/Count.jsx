@@ -41,17 +41,20 @@ const Count = ({ stock, item }) => {
       ...item,
       cantidad: 0,
     };
+
+    console.log(productoAgregado);
     if (true) {
       const resultado = data.items.find((i) => i.id === productoAgregado.id);
       if (resultado) {
-        console.log(resultado);
-        console.log("si existe");
         resultado.cantidad += count;
+        data.items.price *= count;
+        console.log(typeof data.cantidad);
+        console.log(typeof data.items.price);
         setData({
           ...data,
           cantidad: data.cantidad + count,
           items: [...data.items],
-          precio: item.price * parseInt(count),
+          precio: resultado.price * count,
         });
       } else {
         productoAgregado.cantidad = count;
@@ -59,10 +62,16 @@ const Count = ({ stock, item }) => {
           ...data,
           cantidad: data.cantidad + count,
           items: [...data.items, productoAgregado],
-          precio: item.price * parseInt(count),
+          precio: productoAgregado.price * count,
         });
       }
     }
+    /* if (data.items.filter((i) => i.id === productoAgregado.id)) {
+      setData({
+        ...data,
+        precio: productoAgregado.price * count,
+      });
+    } */
   };
   return (
     <>
