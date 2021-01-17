@@ -24,7 +24,7 @@ const Cart = () => {
     <>
       <div className="container mt-5">
         <h1>TU CARRITO</h1>
-        <span>TOTAL ({data.items.length} productos) </span>
+        <strong>TOTAL: {data.items.length} Item </strong>
 
         <div className="row">
           <div className="col mt-5 mb-2">

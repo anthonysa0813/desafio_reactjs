@@ -7,6 +7,7 @@
   height: 200px;
   border: 1px solid black;
   display: flex;
+  box-shadow: 1px 1px 8px black;
 }
 
 .box-product img {
@@ -21,8 +22,10 @@
 .box-resumen {
   max-width: 100%;
   padding: 1em;
-  height: 300px;
+  font-weight: bold;
+
   border: 1px solid black;
+  box-shadow: 1px 1px 8px black;
 }
 .box-resumen-products {
   max-width: 100%;

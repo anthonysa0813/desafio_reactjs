@@ -73,12 +73,14 @@ const Modal = () => {
                     className="btn btn-danger mt-3 ml-3"
                     onClick={() => eliminarTodo()}
                   >
-                    Eliminar todo
+                    ELIMINAR TODO
                   </button>
                 </th>
                 <th>
                   <NavLink to={"/carrito"}>
-                    <button className="btn btn-success mt-3 ml-3">Pagar</button>
+                    <button className="btn btn-success mt-3 ml-3">
+                      IR A PAGAR
+                    </button>
                   </NavLink>
                 </th>
               </tr>

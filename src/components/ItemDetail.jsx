@@ -36,20 +36,22 @@ const ItemDetail = ({
         <ul>
           <ol>
             <FontAwesomeIcon className="icon-check" icon={faCheckCircle} />
-            {character_1}
+            Tiene una superficie de cuero sintético con perforaciones para
+            permitir una óptima ventilación.
           </ol>
           <ol>
             <FontAwesomeIcon className="icon-check" icon={faCheckCircle} />
-            {character_2}
+            Cuenta con una suela exterior que te garantiza una larga
+            durabilidad.
           </ol>
           <ol>
             <FontAwesomeIcon className="icon-check" icon={faCheckCircle} />
-            {character_3}
+            Añade un forro interior textil para darle comodidad a tus pies.
           </ol>
         </ul>
         <span>Precio: </span>
         <strong>${price}</strong> <br />
-        <span>sotck: </span>
+        <span>stock: </span>
         <strong>{stock}</strong>
         <Count stock={stock} item={producto} />
       </div>
