@@ -54,7 +54,6 @@ const Count = ({ stock, item }) => {
           ...data,
           cantidad: data.cantidad + count,
           items: [...data.items],
-          precio: resultado.price * count,
         });
       } else {
         productoAgregado.cantidad = count;
@@ -62,7 +61,6 @@ const Count = ({ stock, item }) => {
           ...data,
           cantidad: data.cantidad + count,
           items: [...data.items, productoAgregado],
-          precio: productoAgregado.price * count,
         });
       }
     }
