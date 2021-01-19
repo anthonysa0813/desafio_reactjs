@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import { Store } from "./store";
 import Portada from "./components/Portada";
 import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 
 function App() {
   const [data, setData] = useState({
@@ -42,6 +43,9 @@ function App() {
             </Route>
             <Route path="/carrito">
               <Cart />
+            </Route>
+            <Route path="/checkout">
+              <Checkout />
             </Route>
           </Switch>
         </Router>

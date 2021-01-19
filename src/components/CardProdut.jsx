@@ -14,7 +14,29 @@ const CardProdut = ({ title, price, pictureUrl, id, description, stock }) => {
 
   return (
     <>
-      <div class="card">
+      <div className="container-card">
+        <div className="container-card__image">
+          <Link to={`/item/${id}`}>
+            {" "}
+            <img src={pictureUrl} alt="..." className="card__producto-image" />
+          </Link>
+        </div>
+        <div className="container-card__info">
+          <div className="content__info">
+            <h5 class="card-title">{title}</h5>
+            <h4 className="price__product">${price}</h4>
+          </div>
+          <Count stock={stock} id={id} item={item} />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default CardProdut;
+
+/* 
+<div class="card">
         <Link to={`/item/${id}`}>
           {" "}
           <img
@@ -33,8 +55,4 @@ const CardProdut = ({ title, price, pictureUrl, id, description, stock }) => {
           <Count stock={stock} id={id} item={item} />
         </div>
       </div>
-    </>
-  );
-};
-
-export default CardProdut;
+*/

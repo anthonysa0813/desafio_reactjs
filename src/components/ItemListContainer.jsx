@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   const { id } = useParams();
-  console.log(id);
 
   const [products, setProducts] = useState([]);
 
@@ -13,18 +12,53 @@ const ItemListContainer = () => {
     const obtenerProductos = async () => {
       const db = getFirestore();
       try {
-        const data = db.collection("productos").get();
-        const arr = (await data).docs.map((i) => ({ id: i.id, ...i.data() }));
-        setProducts(arr);
+        if (id) {
+          let data = db
+            .collection("productos")
+            .where("marca", "==", `${id}`)
+            .get();
+          const arr = (await data).docs.map((i) => ({ id: i.id, ...i.data() }));
+          setProducts(arr);
+        } else {
+          const data = db.collection("productos").get();
+          const arr = (await data).docs.map((i) => ({ id: i.id, ...i.data() }));
+          setProducts(arr);
+        }
       } catch (error) {
         console.log(error);
       }
     };
     obtenerProductos();
-  }, []);
+  }, [id]);
   return (
     <>
-      <div className="container mt-4">
+      <div className="productos-list">
+        {products.length > 0 ? (
+          <h3>Lista de Productos...</h3>
+        ) : (
+          <h3>Cargando...</h3>
+        )}
+      </div>
+      <div className="productos-list">
+        {products.map((item) => (
+          <CardProdut
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            price={item.price}
+            stock={item.stock}
+            pictureUrl={item.image}
+          />
+        ))}
+      </div>
+    </>
+  );
+};
+
+export default ItemListContainer;
+
+/* 
+ <div className="container mt-4">
         <div className="row">
           {products.length > 0 ? (
             <h3>Lista de Productos...</h3>
@@ -45,8 +79,4 @@ const ItemListContainer = () => {
           ))}
         </div>
       </div>
-    </>
-  );
-};
-
-export default ItemListContainer;
+*/

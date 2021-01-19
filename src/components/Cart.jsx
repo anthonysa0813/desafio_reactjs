@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Store } from "../store";
+import { Link } from "react-router-dom";
 import photo from "../images/infinity.jpg";
 
 const Cart = () => {
@@ -27,7 +28,7 @@ const Cart = () => {
         <strong>TOTAL: {data.items.length} Item </strong>
 
         <div className="row">
-          <div className="col mt-5 mb-2">
+          <div className="col col-sm-8 col-md-7 col-12 mt-5 mb-2">
             {data.items
               ? data.items.map((item) => (
                   <div className="box-product mb-2">
@@ -42,15 +43,17 @@ const Cart = () => {
                 ))
               : null}
           </div>
-          <div className="col mt-5">
-            <button className="btn btn-block btn-dark mb-3">IR A PAGAR</button>
+          <div className="col col-sm-4 col-md-5 col-12 mt-5">
+            <Link to="/checkout" className="btn btn-block btn-dark mb-3">
+              IR A PAGAR
+            </Link>
             <div className="box-resumen">
               <h1>RESUMEN DEL PEDIDO</h1>
               {data.items.length > 0 ? (
                 <div className="box-resumen-products">
                   {data.items.map((item) => (
                     <div className="order-count">
-                      <span>{item.cantidad} productos</span>
+                      <span>{item.cantidad} producto(s)</span>
                       <span>${item.price * item.cantidad}</span>
                     </div>
                   ))}
@@ -75,3 +78,6 @@ const Cart = () => {
 };
 
 export default Cart;
+
+/*
+ */

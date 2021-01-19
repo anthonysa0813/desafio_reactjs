@@ -23,9 +23,9 @@
   max-width: 100%;
   padding: 1em;
   font-weight: bold;
-
-  border: 1px solid black;
-  box-shadow: 1px 1px 8px black;
+  margin-bottom: 5em;
+  border: 1px solid rgb(170, 133, 133);
+  box-shadow: 10px 10px;
 }
 .box-resumen-products {
   max-width: 100%;

@@ -28,7 +28,6 @@ const Navbars = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="#home">Contactos</Nav.Link>
             <ul className="navbar-nav">
               <li className="nav-item ">
                 <NavLink

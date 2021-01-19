@@ -8,6 +8,7 @@ import { parse } from "@fortawesome/fontawesome-svg-core";
 const Count = ({ stock, item }) => {
   const [data, setData] = useContext(Store);
   const [check, setCheck] = useState([]);
+  const [error, setError] = useState(false);
 
   const [count, setCount] = useState(0);
   const aumentarCount = () => {
@@ -17,24 +18,6 @@ const Count = ({ stock, item }) => {
   const disminuirCount = () => {
     setCount(count > 0 ? count - 1 : 0);
   };
-
-  /* const addCount = (item) => {
-    if (data.items.length >= 1) {
-      const result = data.items.find((i) => i.id === item.id);
-      setData({
-        ...data,
-        cantidad: count + count,
-        items: [result],
-      });
-    } else {
-      setData({
-        ...data,
-        cantidad: count,
-        items: [...data.items, item],
-      });
-    }
-  };
- */
 
   const addCount = () => {
     const productoAgregado = {
@@ -55,6 +38,8 @@ const Count = ({ stock, item }) => {
           cantidad: data.cantidad + count,
           items: [...data.items],
         });
+      } else if (!count) {
+        setError(true);
       } else {
         productoAgregado.cantidad = count;
         setData({
@@ -62,24 +47,22 @@ const Count = ({ stock, item }) => {
           cantidad: data.cantidad + count,
           items: [...data.items, productoAgregado],
         });
+        setError(false);
       }
     }
-    /* if (data.items.filter((i) => i.id === productoAgregado.id)) {
-      setData({
-        ...data,
-        precio: productoAgregado.price * count,
-      });
-    } */
   };
   return (
     <>
-      <div className="content__info-count">
+      {error ? (
+        <button className="alert alert-danger">Agregue una cantidad</button>
+      ) : null}
+      <div className="content__info-count ">
         <FontAwesomeIcon icon={faMinus} onClick={() => disminuirCount()} />
         {count}
         <FontAwesomeIcon icon={faPlus} onClick={() => aumentarCount()} />
       </div>
       <button
-        className="btn btn-primary btn-block mt-2"
+        className="btn btn-primary mt-4 btn-block"
         onClick={() => addCount()}
       >
         Agregar al carrito

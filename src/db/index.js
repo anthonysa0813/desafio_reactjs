@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "@firebase/firestore";
 
 const app = firebase.initializeApp({
-  apiKey: "AIzaSyBZ7Ury3kgZ8DN4XlNBdGUbjHWgf5z1ZME",
+  apiKey: process.env.API_KEY,
   authDomain: "lasfamstore.firebaseapp.com",
   projectId: "lasfamstore",
   storageBucket: "lasfamstore.appspot.com",
