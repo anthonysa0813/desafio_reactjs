@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { getFirebase, getFirestore } from "../db";
 import { Store } from "../store";
 import firebase from "firebase/app";
+import Resumen from "./general/Resumen";
 
 const Checkout = () => {
   const [data, setData] = useContext(Store);
@@ -65,7 +66,7 @@ const Checkout = () => {
         <div className="row">
           <div className="col col-lg-6 col-sm-6 col-12">
             {error ? (
-              <button className="alert alert-danger">
+              <button className="alert alert-danger btn-block">
                 Todos los campos son obligatorios
               </button>
             ) : null}
@@ -128,29 +129,7 @@ const Checkout = () => {
           </div>
           {!vendido ? (
             <div className="col col-lg-6 col-sm-6 col-12 mb-5">
-              <div className="box-resumen">
-                <h1>RESUMEN DEL PEDIDO</h1>
-                {data.items.length > 0 ? (
-                  <div className="box-resumen-products">
-                    {data.items.map((item) => (
-                      <div className="order-count">
-                        <span>{item.cantidad} producto(s)</span>
-                        <span>${item.price * item.cantidad}</span>
-                      </div>
-                    ))}
-                    <div className="order-count">
-                      <span>ENTREGA</span>
-                      <span>GRATIS</span>
-                    </div>
-                    <div className="order-count">
-                      <span>TOTAL</span>
-                      <span>${data.precio}</span>
-                    </div>
-                  </div>
-                ) : (
-                  <h5>NO EXISTEN PRODUCTOS EN SU CARRITO..</h5>
-                )}
-              </div>
+              <Resumen data={data} />
             </div>
           ) : null}
         </div>

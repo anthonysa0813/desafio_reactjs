@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Navbar from "./components/Navbar";
 import "./index.css";
 import "./cart.css";
+import "./advices.css";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetail from "./components/ItemDetail";
 import ItemDetailContainer from "./components/ItemDetailContainer";
@@ -18,6 +19,7 @@ import { Store } from "./store";
 import Portada from "./components/Portada";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
+import Advice from "./components/Advice";
 
 function App() {
   const [data, setData] = useState({
@@ -34,6 +36,8 @@ function App() {
             <Route path="/" exact>
               <Portada />
               <ItemListContainer />
+              <Advice />
+              <Footer />
             </Route>
             <Route path="/categorias/:id">
               <ItemListContainer />

@@ -7,7 +7,7 @@ const Portada = () => {
   return (
     <>
       <div className="container-portada">
-        <img src={photoPortada} alt="" />
+        {/* <img src={photoPortada} alt="" /> */}
         <div className="text-portada">
           <h2>La mejor cura: "Correr..."</h2>
           <span>Encuentra el equilibrio entrenando</span> <br />

@@ -104,7 +104,8 @@ code {
 
 .image {
   grid-area: image;
-  max-width: 100%;
+  margin: 20px;
+  max-width: 80%;
   object-fit: contain;
 }
 
@@ -113,13 +114,9 @@ code {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100px;
+  padding: 40px;
   background-color: black;
   color: white;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
 }
 
 .icon-check {
@@ -166,11 +163,6 @@ code {
   z-index: 2;
 }
 
-.button-cerrar {
-  background-color: white;
-  color: red;
-}
-
 @media screen and (max-width: 768px) {
   .modal-cart {
     width: 80%;
@@ -197,7 +189,12 @@ code {
 
 .container-portada {
   max-width: 100vw;
-  height: 50vh;
+  height: 75vh;
+  background-image: url("../src/images/photo_portada.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
   position: relative;
   display: flex;
   align-items: center;
@@ -237,9 +234,9 @@ hr {
   width: 15rem;
   text-align: center;
   height: 330px;
-  border: 1px solid black;
+  border: none;
   border-radius: 0.2em;
-  box-shadow: 3px 3px 5px black;
+  box-shadow: 2px 5px 10px rgb(116, 114, 114);
   margin: 1em;
 }
 

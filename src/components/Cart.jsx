@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Store } from "../store";
 import { Link } from "react-router-dom";
 import photo from "../images/infinity.jpg";
+import Resumen from "./general/Resumen";
 
 const Cart = () => {
   const [data, setData] = useContext(Store);
@@ -47,29 +48,7 @@ const Cart = () => {
             <Link to="/checkout" className="btn btn-block btn-dark mb-3">
               IR A PAGAR
             </Link>
-            <div className="box-resumen">
-              <h1>RESUMEN DEL PEDIDO</h1>
-              {data.items.length > 0 ? (
-                <div className="box-resumen-products">
-                  {data.items.map((item) => (
-                    <div className="order-count">
-                      <span>{item.cantidad} producto(s)</span>
-                      <span>${item.price * item.cantidad}</span>
-                    </div>
-                  ))}
-                  <div className="order-count">
-                    <span>ENTREGA</span>
-                    <span>GRATIS</span>
-                  </div>
-                  <div className="order-count">
-                    <span>TOTAL</span>
-                    <span>${data.precio}</span>
-                  </div>
-                </div>
-              ) : (
-                <h5>NO EXISTEN PRODUCTOS EN SU CARRITO..</h5>
-              )}
-            </div>
+            <Resumen data={data} />
           </div>
         </div>
       </div>
